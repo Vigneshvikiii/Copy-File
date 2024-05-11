@@ -6,39 +6,49 @@ PC
 Anaconda - Python 3.7
 ## ALGORITHM: 
 ### Step 1:
-Load the CSV into a DataFrame.
+Get source file name and destination file name from the user..
 
 ### Step 2: 
-Print the number of contents to be displayed using df.head().
+Open the source file in read mode.
  
 ### Step 3: 
-The number of rows returned is defined in Pandas option settings.
+Read the contents from the source file. 
 
 ### Step 4: 
-Check your system's maximum column with the pd.options.display.max_column statement.
+Open the destination file in write mode.
 
 ### Step 5:
-Increase the maximum number of rows to display the entire DataFrame.
+Write the contents read from the source file into the destination file.
 
 ### Step 6: 
-End the program.
+Print a message indicating successful completion.
 
 ## PROGRAM:
 ~~~
-#To write a python program for reading content from a CSV file.
-#Developed by: Vignesh S
-#Register Number: 212223230240
+DEVELOPED BY:Vignesh S 
+REGISTER NUMBER :212223230240
+def copy_file(source_file, destination_file):
+    try:
+        with open(source_file, 'r') as source:
+            with open(destination_file, 'w') as destination:
+                destination.write(source.read())
+        print("Contents copied successfully.")
+    except FileNotFoundError:
+        print("File not found.")
 
-import pandas as pd
-df = pd.read_csv('nba.csv')
-print(df.head(10))
-print(df.tail())
-print("Number of rows:",len(df.axes[0]))
-print("Number of columns:",len(df.axes[1]))
+def main():
+    source_file = input("Enter the source file name: ")
+    destination_file = input("Enter the destination file name: ")
+    copy_file(source_file, destination_file)
+
+if __name__ == "__main__":
+    main()
 ~~~
 
 ### OUTPUT:
-![Screenshot 2024-05-10 195909](https://github.com/Vigneshvikiii/Copy-File/assets/147474483/24884de8-bacb-4ef0-a71c-3a9643b477c3)
+
+![image](https://github.com/Vigneshvikiii/Copy-File/assets/147474483/211b228f-524e-4beb-90e3-99f6d4101993)
+
 
 
 
